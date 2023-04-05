@@ -1,0 +1,22 @@
+# Arquivos gerados automaticamente
+node_modules/
+build/
+coverage/
+*.log
+
+# Arquivos de configuração
+.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Dependências de desenvolvimento
+/coverage
+/docs
+/src/**/*.spec.js
+/src/**/*.test.js
+
+# Outros arquivos
+*.DS_Store
+Thumbs.db

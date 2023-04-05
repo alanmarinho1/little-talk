@@ -1,0 +1,14 @@
+{
+  "name": "little-talk",
+  "version": "1.0.0",
+  "description": "This project provides a recomendations of responses in a chat with two peoples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alan Marinho",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
