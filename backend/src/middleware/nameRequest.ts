@@ -1,4 +1,5 @@
-module.exports = (request, response, next) => {
+const DebugRequests = (request: any, _response: any, next: () => void) => {
+    
     const {method, originalUrl} = request;
 
     const message = `A requisição ${method} foi feita na roda ${originalUrl}`
@@ -7,3 +8,5 @@ module.exports = (request, response, next) => {
 
     next();
 }
+
+export default DebugRequests;
