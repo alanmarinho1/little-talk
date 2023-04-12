@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
         console.log(`a user ${socket.id} disconnected`);
       });
     socket.on('receive-message', (value) => {
-        console.log(`O filadaputa ${socket.id} mandou a mensagem: ${value}`)
+        console.log(`O user ${socket.id} mandou a mensagem: ${value}`)
     })
     socket.on('foo', (value) => {
         console.log("Foo do nada: ",value);
