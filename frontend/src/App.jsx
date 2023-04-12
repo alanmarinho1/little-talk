@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { socket } from './services/socket';
 
 import './App.css'
+import Form from './components/Form';
+import { ConnectionState } from './components/ConnectionState';
+import { ConnectionManager } from './components/ConnectionManager';
+import { Events } from './components/Events';
 
 function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -18,23 +22,29 @@ function App() {
       setIsConnected(false);
     }
 
+    function onFooEvent(value) {
+      setFooEvents(fooEvents.concat(value));
+    }
+
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
+    socket.on('foo', onFooEvent);
     
 
     return () => {
       socket.off('connect', onConnect);
       socket.off('disconnect', onDisconnect);
+      socket.off('foo', onFooEvent);
       
     };
-  }, []);
+  }, [fooEvents]);
 
   return (
-    <div className='App'>
-      <ul id="messages"></ul>
-      <form id="form" action="">
-        <input id="input" autocomplete="off" /><button>Send</button>
-      </form>
+    <div className="App">
+      <ConnectionState isConnected={ isConnected } />
+      <Events events={ fooEvents } />
+      <ConnectionManager />
+      <Form />
     </div>
     
   )

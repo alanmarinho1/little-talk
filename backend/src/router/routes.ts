@@ -1,5 +1,5 @@
 import express from "express";
-import { SendMessageController } from "./controllers/sendMessages";
+import { SendMessageController } from "../controllers/sendMessages";
 
 const routes = express();
 

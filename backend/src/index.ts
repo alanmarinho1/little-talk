@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import express from 'express'
-import routes from './routes'
+import routes from './router/routes'
 import { Server } from 'socket.io'
 import DebugRequests from './middleware/nameRequest'
 import http from 'http'
@@ -26,7 +26,17 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log(`a user ${socket.id} disconnected`);
       });
+    socket.on('receive-message', (value) => {
+        console.log(`O filadaputa ${socket.id} mandou a mensagem: ${value}`)
+    })
+    socket.on('foo', (value) => {
+        console.log("Foo do nada: ",value);
+    })
   });
+
+
+
+
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000
 

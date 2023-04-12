@@ -41,7 +41,7 @@ export class SendMessageController {
             console.log(choices)
             
             return res.json({
-                response: choices[0].text
+                response: choices.map(item => item.text).join(' ')
             })
         } catch (error) {
             console.log(error.response.data)
